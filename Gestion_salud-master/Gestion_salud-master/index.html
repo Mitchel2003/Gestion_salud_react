@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion salud</title>
+  <!-- dependency -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- sweetAlert and boxicons -->
+  <!-- local resource -->
+  <link rel="icon" type="image/x-icon" href="./src/components/images/gs_icon.ico">
+  <link rel="stylesheet" href="./src/controller/styles/index.css">
+  <link rel="stylesheet" href="./src/controller/styles/verifyAction.css">
+  <script type="module" src="./src/controller/index.js"></script>
+</head>
+
+<body style="height: 100vh !important;"> <!--AC #207-->
+
+  <div class="mainContainer">
+
+    <div class="signContainer">
+      <header>Login</header>
+      <form>
+        <input class="classic-input" name="user" type="email" placeholder="User" required>
+        <div id="bx-password-login" class="box-input-password">
+          <input id="password-login" name="password" type="password" placeholder="Password" required>
+          <img src="./src/components/images/eye-close.webp" id="eyeIcon-login">
+        </div>
+        <button type="submit" class="button">Login</button>
+        <button type="button">Did you forgot password</button>
+      </form>
+    </div>
+
+    <div class="registerContainer">
+      <header>Register</header>
+      <form>
+        <input class="classic-input" name="user" type="text" placeholder="Name" required>
+        <input class="classic-input" name="mail" type="email" placeholder="Email" required>
+        <div id="bx-password-register" class="box-input-password">
+          <input id="password-register" name="password" type="password" placeholder="Password" required>
+          <img src="./src/components/images/eye-close.webp" id="eyeIcon-register">
+        </div>
+
+        <label id="position">User access</label>
+
+        <div class="container-select">
+          <select name="access" id="select-access">
+            <option value="" selected disabled>choose a access</option>
+            <option value="auditor">Auditor</option>
+            <option value="admin">Administrator</option>
+            <option value="auxiliary">Auxiliary</option>
+          </select>
+        </div>
+
+        <div class="container-select">
+          <select name="entity" id="select-entity">
+            <option value="" selected disabled>choose a entity</option>
+            <!-- wait database -->
+          </select>
+        </div>
+
+        <button type="submit" class="button">Send request</button>
+      </form>
+    </div>
+    
+  </div>
+
+  <!-- screen loading... -->
+  <div class="loadContainer">
+    <div class="load">
+      <div class="frame_1"></div>
+      <div class="frame_2"></div>
+    </div>
+  </div>
+
+  <!-- dependency -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweetAlert -->
+</body>
+
+</html>

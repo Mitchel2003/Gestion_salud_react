@@ -1,0 +1,50 @@
+*{
+ margin: 0;   
+ padding: 0;
+}body{
+    min-height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../../components/images/background_session.webp');
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.side-bar{
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0.3;
+    padding: 0;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}.side-bar li, .side-bar a{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    color: black;
+    align-items: center;
+    text-decoration: none;
+}.side-bar a, .close-options{
+    padding: 0 0 0 30px;
+}
+
+.close-options h4{
+    margin-right: auto;
+}.close-options span{
+    margin-right: 10px;
+}.close-options span:hover, .side-bar a:hover{
+    background-color: rgb(240, 240, 240, 0.5);
+}.spawn{ transform: translateX(0); opacity: 1; }/*class spawn side-bar*/

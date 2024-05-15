@@ -1,0 +1,230 @@
+/*--------------------------------------------------animation custom--------------------------------------------------*/
+@keyframes animEntry { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); }}/*animation soft displacement to init()*/
+/*fix transition login-register*/
+.mainContainer.active .registerContainer{transform: translate(-50%); border-radius: 150px; box-shadow: 0 -5px 10px rgba(0,0,0,0.3);}
+.mainContainer.active{height: 70%;}
+.mainContainer.active .registerContainer header{transform: scale(1.1); opacity: 1;}
+.mainContainer.active .signContainer header{transform: scale(0.9); opacity: 0.6;}
+.mainContainer.active .signContainer header:hover{transform: scale(1);}
+/*--------------------------------------------------Generaly--------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}body{
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/*--------------------------------------------------styles for containers--------------------------------------------------*/
+.mainContainer{
+    position: relative;
+    overflow: hidden;
+    height: 50%;
+    width: 300px;
+    opacity: 0;
+    padding: 8px 30px 120px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: height 0.7s ease;
+}.mainContainer.loaded {
+    animation: animEntry 2s ease; /*AC #201*/
+    opacity: 1;
+}
+.registerContainer{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 125%;
+    width: calc(100% + 125px);
+    padding: 7px 100px;
+    border-radius: 200px;
+    background: linear-gradient(to bottom, rgba(199, 135, 245, 0.6), rgba(225, 190, 225, 0.7), rgba(230, 210, 230, 0.8), rgba(240, 230, 240, 0.9), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240), rgb(240, 230, 240));
+    transform: translate(-50%, 70%);
+    transition: transform 0.7s ease, border-radius 0.7s ease, box-shadow 0.7s ease;
+}
+/*--------------------------------------------------custom header--------------------------------------------------*/
+header{
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 36px;
+    height: 7vh;
+    color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}.registerContainer header{
+    color: #333;
+    opacity: 0.6;
+    transform: scale(0.9);
+}.registerContainer header:hover{
+    transform: scale(1);
+}
+/*--------------------------------------------------form container--------------------------------------------------*/
+.mainContainer form, .registerContainer form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+/*--------------------------------------------------input, select--------------------------------------------------*/
+form input, form select, .box-input-password{
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+input, select, .box-input-password, .container-select{/*fix inputs (generaly)*/
+    height: 6vh;
+    width: calc(100% - 10%);
+    transition: transform 0.3s ease, font-size 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease ;
+}.classic-input:hover, .box-input-password:hover, .container-select:hover{
+    font-size: 18px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}.box-input-password:hover input{
+    font-size: 18px;
+}
+
+.signContainer input, #bx-password-login{/*fix inputs (login)*/
+    color: rgb(222, 209, 209);
+    background-color: rgba(0, 0, 0, 0.1);
+}.signContainer input::placeholder{
+    color: rgba(221, 210, 210, 0.7);
+}.signContainer input:hover, #bx-password-login:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+  
+.registerContainer input, #bx-password-register{/*fix inputs (register)*/
+    background-color: #fdfdfd;
+}
+
+select {/*fix inputs (register select)*/
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    flex: 1;
+    cursor:pointer;
+    border-radius: 0 !important;
+}select::-ms-expand {
+    display: none;
+}.container-select{
+    position: relative;
+    display: flex;
+    border-radius: 8px;
+    line-height: 3;
+    background: #333;
+    overflow: hidden;
+}.container-select::after{
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    cursor:pointer;
+    pointer-events:none;
+    color: rgb(229, 157, 229);
+    background-color: rgb(249, 220, 249);
+    transition: color 0.7s ease;
+}.container-select:hover::after{
+    color: rgb(203, 119, 203);
+}
+/*--------------------------------------------------buttons--------------------------------------------------*/
+form .button{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    height: 6vh;
+    width: 50%;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: transform 0.5s ease, font-size 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}form .button::before{
+    content: "";
+    position: absolute;
+    height: 200%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: transform 0.7s ease;
+}
+
+.signContainer .button{/*fix buttons (login)*/
+    color: rgb(230, 200, 230);
+    background: linear-gradient(to bottom, rgba(159, 0, 93, 0.5),rgba(159, 0, 110, 0.5),rgba(159, 0, 135, 0.5),rgba(159, 0, 150, 0.5),rgba(159, 0, 165, 0.5),rgba(159, 0, 180, 0.5),rgba(159, 0, 200, 0.5),rgba(159, 0, 220, 0.5),rgba(159, 0, 240, 0.5));
+    transform: scale(1);
+}.signContainer .button:hover{
+    transform: scale(1.1);
+    font-size: 20px;
+    color: #000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}.signContainer .button::before{
+    border-radius: 80% 80% 0 0;
+    background: linear-gradient(to bottom, rgba(159, 0, 240, 0.3),rgba(165, 20, 240, 0.3),rgba(175, 40, 241, 0.3),rgba(185, 60, 244, 0.3),rgba(195, 80, 245, 0.3),rgba(205, 100, 247, 0.3),rgba(215, 120, 248, 0.3),rgba(225, 140, 250, 0.3),rgba(235, 160, 252, 0.3),rgba(245, 180, 253, 0.3),rgba(255, 200, 254, 0.3),rgba(255, 220, 255, 0.3),rgba(255, 240, 255, 0.3),rgba(255, 255, 255, 0.3));
+    transform: translateY(100%);/*translate filter to down*/
+}.signContainer .button:hover::before{
+    transform: translateY(-40%);
+}
+
+.registerContainer .button{/*fix buttons (register)*/
+    padding: 0;
+    color: rgb(193, 113, 255);
+    background: linear-gradient(to bottom, rgb(213, 162, 255),rgb(230, 201, 255),rgb(234, 213, 252),rgb(243, 228, 255));
+    transform: scale(1);
+}.registerContainer .button:hover{
+    transform: scale(1.1);
+    font-size: 19px;
+    color: #000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}.registerContainer .button::before{
+    border-radius: 0 0 80% 80%;
+    background: linear-gradient(to bottom, rgba(159, 0, 11, 0.5),rgba(111, 0, 229, 0.5),rgba(0, 235, 252, 0.5),rgba(0, 228, 42, 0.5),rgba(225, 255, 0, 0.5));
+    transform: translateY(-100%);/*translate filter to up*/
+}.registerContainer .button:hover::before{
+    transform: translateY(0);
+}
+/*--------------------------------------------------text, link--------------------------------------------------*/
+.signContainer button[type="button"]{
+    border: none;
+    font-size: 15px;
+    color: rgb(205, 170, 205);
+    background: rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease;
+}.signContainer button[type="button"]:hover{
+    transform: scale(1.1);
+}
+
+.registerContainer label{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 50%;
+    font-weight: 400;
+}
+/*--------------------------------------------------media query (responsive)--------------------------------------------------*/
+@media (min-height: 800px) {.container-select{line-height: 4;}}
+@media (min-width: 720px) {.mainContainer{width: 42vw; max-width: 400px;}}
+ 
+@media (min-height: 950px) {.mainContainer.active{height: 67%;} .mainContainer.active .registerContainer{transform: translate(-50%, 7%);} .mainContainer{height: 45%;}}
+@media (max-height: 950px) {.mainContainer.active{height: 69%;} .mainContainer.active .registerContainer{transform: translate(-50%, 8%);}}
+@media (max-height: 800px) {.mainContainer.active{height: 70%;} .registerContainer{transform: translate(-50%, 68%);}}
+@media (max-height: 750px) {.mainContainer.active{height: 72%;}}
+@media (max-height: 700px) {.mainContainer.active{height: 74%;}}
+@media (max-height: 650px) {.mainContainer.active{height: 76%;} form .button{width: 60%;} .mainContainer form{padding: 10px 0;} .mainContainer{height: 320px;} .registerContainer{transform: translate(-50%, 67%);}}/*static*/
+@media (max-height: 550px) {.mainContainer.active{height: 430px;} .mainContainer.active .registerContainer{transform: translate(-50%, 9%);} .mainContainer form{padding: 20px 0;}  input, select, .box-input-password, form .button{height: 35px;}}
+@media (max-height: 450px) {.mainContainer.active{height: 410px;}}
