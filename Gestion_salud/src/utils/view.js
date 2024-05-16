@@ -1,6 +1,6 @@
 export function loadElements(container) {//init()
     const background = new Image();
-    background.src = "./src/components/images/background_login.webp";
+    background.src = "./src/images/background_login.webp";
     background.onload = async function () {
         document.body.style.backgroundImage = `url(${background.src})`;//setBackground
         container.classList.add('loaded');//animStart
@@ -11,7 +11,7 @@ export function onLoadWhile() { document.querySelector('.loadContainer').classLi
 export function offLoadWhile() { document.querySelector('.loadContainer').classList.remove('show'); }
 
 export async function appennedItemSelect(selectContext) {
-    const { getDataByRequest } = await import('../firebase/query.js');
+    const { getDataByRequest } = await import('@/database/query.js');
     const select = document.querySelector(selectContext);
     const data = await getDataByRequest();
     data.forEach((e) => {
